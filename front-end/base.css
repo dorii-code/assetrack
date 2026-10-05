@@ -1,0 +1,114 @@
+/* base.css: layout and components. Colors come from tokens.css. */
+
+/* ---------- Reset and type ---------- */
+* { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-body); }
+h1, h2, .brand { font-family: var(--font-head); margin: 0; }
+h1 { font-size: 28px; line-height: 1.15; }
+h2 { font-size: 17px; margin-bottom: 12px; }
+p { margin: 4px 0; }
+small, .mut { color: var(--mut); }
+a { color: var(--pri); }
+
+/* ---------- App shell: sidebar + main ---------- */
+.app { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+aside { background: var(--card); border-right: 1px solid var(--line); padding: 20px 14px; display: flex; flex-direction: column; gap: 18px; }
+main { padding: 26px 30px; max-width: 1100px; width: 100%; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+
+.brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 19px; }
+.brand i { display: grid; place-items: center; width: 30px; height: 30px; background: var(--tag); color: #101c2e; border-radius: 6px; font-style: normal; }
+.ws { font-weight: 600; }
+.ws small { display: block; font-weight: 400; }
+
+nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+nav a { padding: 9px 12px; border-radius: 8px; text-decoration: none; color: var(--ink); font-weight: 600; }
+nav a.on { background: var(--soft); color: var(--pri); box-shadow: inset 3px 0 var(--tag); }
+
+/* ---------- Cards and grids ---------- */
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+.stat { margin: 0; }
+.stat b { display: block; font: 800 30px var(--font-head); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.grid .card { margin: 0; }
+.pick { cursor: pointer; text-align: left; font: inherit; color: inherit; }
+
+/* ---------- Buttons and forms ---------- */
+button, input, select, textarea { font: inherit; }
+.btn { background: var(--pri); color: var(--on); border: 0; border-radius: 8px; padding: 9px 16px; font-weight: 600; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--pri); border: 1px solid var(--line); }
+.bell { background: var(--card); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; cursor: pointer; color: var(--ink); }
+.btns { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+
+label { display: block; font-weight: 600; margin-bottom: 12px; }
+label > * { display: block; width: 100%; margin-top: 4px; font-weight: 400; }
+input, select, textarea { background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline: 2px solid var(--i); outline-offset: 2px; }
+
+/* ---------- Status badges ---------- */
+.b { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; margin-right: 4px; background: color-mix(in srgb, currentColor 14%, transparent); }
+.w { color: var(--w); } .i { color: var(--i); } .g { color: var(--g); } .r { color: var(--r); } .m { color: var(--mut); }
+
+/* ---------- Lists, bars, tables ---------- */
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-of-type { border-top: 0; }
+.row p { color: var(--mut); }
+.tags { white-space: nowrap; }
+.bar { display: grid; grid-template-columns: 50px 1fr 24px; align-items: center; gap: 8px; margin-bottom: 8px; }
+.bar i { display: block; height: 12px; background: var(--pri); border-radius: 3px; min-width: 3px; }
+
+.toolbar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.toolbar input { flex: 1; min-width: 160px; }
+.toolbar select { width: auto; }
+.tw { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--mut); font-weight: 600; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--soft); }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; }
+.tabs button { background: var(--card); border: 1px solid var(--line); color: var(--ink); padding: 7px 14px; border-radius: 99px; cursor: pointer; }
+.tabs .on { background: var(--pri); color: var(--on); border-color: var(--pri); }
+
+.rep { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ctl { display: flex; gap: 10px; }
+.ctl label { margin: 0; }
+
+dl { display: grid; grid-template-columns: 100px 1fr; gap: 8px; margin: 0; }
+dt { color: var(--mut); }
+dd { margin: 0; }
+dd select { width: auto; }
+
+/* ---------- Asset tag (QR card) ---------- */
+.tagc { text-align: center; border-top: 8px solid var(--tag); }
+.qr { width: 180px; margin: 6px auto 10px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.qr svg { display: block; width: 100%; height: auto; }
+
+/* ---------- Standalone pages (login, scan/report) ---------- */
+.solo { max-width: 520px; margin: 0 auto; padding: 24px 16px; }
+.solo .brand { margin-bottom: 20px; }
+.hero h1 { font-size: 36px; margin: 18px 0 8px; }
+.back { display: inline-block; margin-bottom: 12px; }
+
+/* ---------- Dialog and toast ---------- */
+dialog { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; width: min(440px, 92vw); }
+dialog::backdrop { background: rgba(0, 0, 0, .45); }
+#toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--pri); color: var(--on); padding: 10px 18px; border-radius: 8px; font-weight: 600; z-index: 9; }
+#toast[hidden] { display: none; }
+
+/* ---------- Mobile: sidebar becomes a top bar ---------- */
+@media (max-width: 800px) {
+  .app { grid-template-columns: 1fr; }
+  aside { flex-direction: row; flex-wrap: wrap; align-items: center; padding: 12px; border: 0; border-bottom: 1px solid var(--line); }
+  nav { flex-direction: row; overflow-x: auto; order: 3; width: 100%; flex: none; }
+  nav a { white-space: nowrap; }
+  .ws { display: none; }
+  main { padding: 18px 14px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .two { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 30px; }
+}

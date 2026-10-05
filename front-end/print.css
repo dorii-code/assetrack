@@ -1,0 +1,14 @@
+/* print.css: used when printing QR labels (Asset page or QR Labels page). */
+@page { margin: 12mm; }
+
+@media print {
+  /* hide everything that is not the label itself */
+  aside, .top, .btns, .toolbar, .back, #toast, .noprint { display: none !important; }
+  .app { display: block; }
+  body { background: #fff; color: #000; }
+  main { padding: 0; max-width: none; }
+
+  /* one label never splits across pages */
+  .card { break-inside: avoid; box-shadow: none; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}

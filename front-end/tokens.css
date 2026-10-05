@@ -1,0 +1,53 @@
+/* tokens.css: colors, fonts, and theme. Change the look of the whole app here. */
+
+:root {
+  box-sizing: border-box;
+  /* keeps content clear of phone notches and system bars */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* fonts */
+  --font-head: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+
+  /* surfaces and text */
+  --bg: #eef2f6;
+  --card: #ffffff;
+  --ink: #101c2e;
+  --mut: #5a6b82;
+  --line: #d5dde8;
+  --soft: #e3ebf7;
+
+  /* brand */
+  --pri: #1b3a6b;   /* buttons, links, active tab */
+  --on: #ffffff;    /* text on --pri */
+  --tag: #f5b700;   /* asset-tag yellow: logo, QR label strip, active nav marker */
+
+  /* status colors */
+  --w: #b45309;     /* warning: pending, fair, high */
+  --i: #1d4ed8;     /* info: in progress, medium */
+  --g: #15803d;     /* good: resolved, active */
+  --r: #c62828;     /* danger: poor, critical */
+
+  color-scheme: light;
+}
+
+/* dark mode follows the device unless data-theme="light" is set on <html> */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1320; --card: #141e30; --ink: #e7eefb; --mut: #92a3bd;
+    --line: #26344d; --soft: #1b2a45;
+    --pri: #8fb2f2; --on: #0c1320;
+    --w: #f0a050; --i: #7aa2ff; --g: #4ade80; --r: #ff7b7b;
+    color-scheme: dark;
+  }
+}
+
+/* force dark with data-theme="dark" (same values as above) */
+:root[data-theme="dark"] {
+  --bg: #0c1320; --card: #141e30; --ink: #e7eefb; --mut: #92a3bd;
+  --line: #26344d; --soft: #1b2a45;
+  --pri: #8fb2f2; --on: #0c1320;
+  --w: #f0a050; --i: #7aa2ff; --g: #4ade80; --r: #ff7b7b;
+  color-scheme: dark;
+}

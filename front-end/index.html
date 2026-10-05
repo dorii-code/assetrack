@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AssetTrack</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters: tokens first) -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+  <noscript>AssetTrack needs JavaScript turned on to work.</noscript>
+
+  <!-- app.js renders every screen into #root -->
+  <div id="root"></div>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- QR library: CDN for now. To work offline, download it to lib/qrcode.min.js and use the local line instead. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <!-- <script src="lib/qrcode.min.js"></script> -->
+
+  <!-- App scripts (plain scripts, not modules, because the views use inline onclick handlers).
+       Order matters: utils, store, qr, views, then app.js last.
+       These files are created in the next steps, so the browser console shows 404s until they exist. -->
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/qr.js"></script>
+  <script src="js/views/login.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/assets.js"></script>
+  <script src="js/views/reports.js"></script>
+  <script src="js/views/labels.js"></script>
+  <script src="js/views/report-page.js"></script>
+  <script src="js/views/user.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
