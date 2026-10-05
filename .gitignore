@@ -1,0 +1,30 @@
+# --- Secrets (never commit real passwords) ---
+back-end/config/db.php
+
+# --- User-uploaded files (keep the folder, ignore the photos) ---
+back-end/uploads/reports/*
+!back-end/uploads/reports/.gitkeep
+
+# --- Logs and temp files ---
+*.log
+error_log
+tmp/
+temp/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor / IDE settings ---
+.vscode/
+.idea/
+*.swp
+
+# --- Dependencies (only if you add them later) ---
+node_modules/
+vendor/
+
+# --- Local backups and exports ---
+*.bak
+*.sql.bak
